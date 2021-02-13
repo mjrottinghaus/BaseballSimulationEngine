@@ -15,4 +15,20 @@ public class Team {
 		startingRotation = new PitchingPlayer[STARTING_ROTATION_LENGTH];
 	}
 
+	public PositionPlayer[] getLineup() {
+		return lineup;
+	}
+
+	public PositionPlayer[] getBench() {
+		return bench;
+	}
+
+	public PitchingPlayer[] getStartingRotation() {
+		return startingRotation;
+	}
+
+	public PitchingPlayer[] getBullpen() {
+		return bullpen;
+	}
+
 }
