@@ -27,10 +27,11 @@ public class Game {
 		// play through all the innings in the game
 		// if the score is tied after the standard innings are played, play extra innings until one team has a higher score
 		int inning = 1;
-		while(inning <= 9 || homeScore == awayScore) {
+		while(inning <= INNINGS_TO_PLAY || homeScore == awayScore) {
 			// complete the away side of the inning
 			Inning awayInning = new Inning(awayTeam.getLineup(), currentHomePitcher,
 					homeTeam.getBullpen(), awayLineupPosition);
+			awayInning.completeInning();
 			// store the runs and the current positions of pitchers and lineups
 			awayScore += awayInning.getRuns();
 			awayLineupPosition = awayInning.getCurrentLineupPosition();
@@ -39,6 +40,7 @@ public class Game {
 			// complete the home side of the inning
 			Inning homeInning = new Inning(homeTeam.getLineup(), currentAwayPitcher,
 					awayTeam.getBullpen(), homeLineupPosition);
+			homeInning.completeInning();
 			// store the runs and the current positions of pitchers and lineups
 			homeScore += homeInning.getRuns();
 			homeLineupPosition = homeInning.getCurrentLineupPosition();
